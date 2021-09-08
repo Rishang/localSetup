@@ -1,0 +1,6 @@
+vars/*
+tmp
+Dockerfile
+Vagrantfile
+Makefile
+.vagrant

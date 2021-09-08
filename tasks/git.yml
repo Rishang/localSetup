@@ -1,0 +1,7 @@
+- name: Clone {{item.name}} repo with separate git directory
+  git:
+    repo: "{{ item.repo }}"
+    clone: yes
+    dest: "{{ git.path }}/{{ item.name }}"
+    depth: 1
+  loop: "{{ git.clone }}"

@@ -1,0 +1,48 @@
+# Apt
+
+- name: updating repos
+  apt:
+    name: '*'
+    state: latest
+    pkg:
+    - wget
+    - curl
+    - apt-transport-https
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Adding keys for {{ item.name }}
+  apt_key:
+    url: "{{ item.apt.key }}"
+    state: present
+  loop: "{{ repos }}"
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: "Adding repo for {{ item.name }}"
+  apt_repository:
+    repo: "{{ item.apt.repo }}"
+    state: present
+  loop: "{{ repos }}"
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: "update and install repo packages"
+  apt:
+    name: "{{ item.apt.packages }}"
+    state: latest
+  loop: "{{ repos }}"
+  when: ansible_facts['os_family'] == 'Debian'
+
+# Yum
+
+- name: Import a key from a url
+  rpm_key:
+    state: present
+    key: "{{ item.yum.key }}"
+  loop: "{{ repos }}"
+  when: ansible_facts['os_family'] == 'RedHat'
+
+- name: Add multiple repositories into the same file (1/2)
+  yum_repository:
+    name: "{{ item.yum.name }}"
+    baseurl: "{{ item.yum.repo }}"
+  loop: "{{ repos }}"
+  when: ansible_facts['os_family'] == 'RedHat'

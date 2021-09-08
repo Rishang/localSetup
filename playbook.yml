@@ -1,0 +1,26 @@
+---
+- name: test
+  hosts: all
+  vars_files:
+    - "vars/setup.yml"
+    
+  tasks:
+    - name: adding repos
+      import_tasks: tasks/repo.yml
+      when: repos is defined
+      become: true
+    
+    - name: adding package
+      import_tasks: tasks/packages.yml
+      when: packages is defined
+      become: true
+
+    - name: adding snap
+      import_tasks: tasks/snapcraft.yml
+      when: snap is defined
+      become: true
+
+    - name: cloning git repos
+      import_tasks: tasks/git.yml
+      when: git is defined
+      ignore_errors: yes

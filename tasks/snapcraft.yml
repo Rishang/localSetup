@@ -1,0 +1,16 @@
+# Install snap packages 
+
+- name: installing {item.name}
+  snap:
+    name: "{{ item.packages }}"
+    state: present
+    classic: no
+  loop: "{{ snap }}"
+
+# snap classic packages
+- name: installing classic {item.name}
+  snap:
+    name: "{{ item.classic.packages }}"
+    state: present
+    classic: yes
+  loop: "{{ snap }}"

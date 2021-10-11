@@ -24,7 +24,8 @@ packages:
 
 snap:
   packages:
-  - hello-world
+  - slack
+  - postman
   classic:
   - code
 

@@ -1,13 +1,13 @@
 - name: Installing packages apt based
   apt:
-    name: "{{ item.apt }}"
+    name: "{{ item }}"
     state: latest
-  loop: "{{ packages }}"
+  loop: "{{ packages.apt }}"
   when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install packages yum based
   yum:
-    name: "{{ item.yum }}"
+    name: "{{ item }}"
     state: latest
-  loop: "{{ packages }}"
+  loop: "{{ packages.yum }}"
   when: ansible_facts['os_family'] == 'RedHat'

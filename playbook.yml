@@ -24,3 +24,7 @@
       import_tasks: tasks/git.yml
       when: git is defined
       ignore_errors: yes
+
+    - name: install go tools
+      import_tasks: tasks/go.yml
+      when: go is defined

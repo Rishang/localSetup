@@ -1,0 +1,5 @@
+- name: Installing go packages
+  shell: "go install {{ item }}"
+  loop: "{{ go.install }}"
+  when: 
+    - go.install is defined

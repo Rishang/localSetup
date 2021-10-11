@@ -15,19 +15,18 @@ repos:
   
 
 packages:
-  - apt:
-    - curl
-    - gron
-    - python3
-    - golang
-    - htop
+  apt:
+  - curl
+  - gron
+  - python3
+  - golang
+  - htop
 
 snap:
-  - packages:
+  packages:
     - hello-world
-    classic:
-      packages:
-      - code
+  classic:
+    - code
 
 git:
   path: ${HOME}/ansible/local/
@@ -35,3 +34,7 @@ git:
   - name: ansible-practice-setup
     repo: https://github.com/Rishang/ansible-practice-setup.git
 
+go:
+  install:
+    - github.com/tomnomnom/gf@latest
+    - github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest

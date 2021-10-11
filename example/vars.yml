@@ -38,6 +38,8 @@ pip:
   install:
   - django
   - fastapi[standard]
+  - pandas
+  - "bs4"
 
 git:
   path: ${HOME}/ansible/local/

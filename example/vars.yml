@@ -24,9 +24,9 @@ packages:
 
 snap:
   packages:
-    - hello-world
+  - hello-world
   classic:
-    - code
+  - code
 
 git:
   path: ${HOME}/ansible/local/

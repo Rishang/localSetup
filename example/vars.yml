@@ -39,7 +39,7 @@ pip:
   - django
   - fastapi[standard]
   - pandas
-  - "bs4"
+  - bs4
 
 git:
   path: ${HOME}/ansible/local/

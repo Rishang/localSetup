@@ -31,8 +31,8 @@ snap:
 
 go:
   install:
-    - github.com/tomnomnom/gf@latest
-    - github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+  - github.com/tomnomnom/gf@latest
+  - github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
 pip:
   install:

@@ -28,3 +28,7 @@
     - name: install go tools
       import_tasks: tasks/go.yml
       when: go is defined
+
+    - name: install pip packages
+      import_tasks: tasks/pip.yml
+      when: pip is defined

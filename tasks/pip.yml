@@ -1,0 +1,5 @@
+- name: Installing pip packages
+  shell: "pip install -U {{ item }}"
+  loop: "{{ pip.install }}"
+  when: 
+    - pip.install is defined

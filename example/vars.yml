@@ -29,13 +29,18 @@ snap:
   classic:
   - code
 
+go:
+  install:
+    - github.com/tomnomnom/gf@latest
+    - github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+pip:
+  install:
+  - django
+  - fastapi[standard]
+
 git:
   path: ${HOME}/ansible/local/
   clone:
   - name: ansible-practice-setup
     repo: https://github.com/Rishang/ansible-practice-setup.git
-
-go:
-  install:
-    - github.com/tomnomnom/gf@latest
-    - github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest

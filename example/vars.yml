@@ -7,7 +7,7 @@ repos:
       - sublime-text
     yum:
       key: "https://download.sublimetext.com/sublimehq-rpm-pub.gpg"
-      repo: "https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo"
+      repo: "https://download.sublimetext.com/rpm/stable/x86_64"
       packages:
       - sublime-text
   

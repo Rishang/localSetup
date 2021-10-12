@@ -52,7 +52,8 @@
 
 - name: Add multiple repositories into the same file (1/2)
   yum_repository:
-    name: "{{ item.yum.name }}"
+    name: "{{ item.name }}"
+    description: "{{ item.name }}"
     baseurl: "{{ item.yum.repo }}"
   loop: "{{ repos }}"
   when:

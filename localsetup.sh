@@ -37,7 +37,7 @@ function _print_help {
     echo "-u       | Update localsetup"
 }
 
-while getopts ":i:u:h" opt; do
+while getopts ":iuh" opt; do
     case "${opt}" in
         i)  
             i=${OPTARG}

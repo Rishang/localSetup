@@ -2,7 +2,16 @@
 
 localSetup
 
-    git clone https://github.com/Rishang/localSetup.git ~/.localsetup
+## requirements
+
+- python
+- ansible
+
+`pip install ansible`
+
+- **Clone repo and link the bash scrip to local bin via below commands**
+
+    git clone "https://github.com/Rishang/localSetup.git" ~/.localsetup
 
     ln -s ~/.localsetup/localsetup.sh ~/.local/bin/localsetup
 

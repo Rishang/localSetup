@@ -26,3 +26,7 @@ This will install packages defined in the URL - (`vars.yml`)
 In order to see help page
 
     localsetup -h
+
+    -i [URL] | install packages form url template
+    -u | update localsetup
+    /home/noobi/Desktop/projects/localSetup

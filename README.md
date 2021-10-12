@@ -5,9 +5,19 @@ localSetup
 ## requirements
 
 - python
-- ansible
 
-`pip install ansible`
+- openssh
+- openssh-askpass
+
+    - For debian
+    `apt install openssh-server openssh-askpass` 
+
+    - For fedora / Centos
+    `yum install openssh openssh-server openssh-askpass`
+
+- ansible
+    - Install ansible
+    `pip install ansible`
 
 - **Clone repo and link the bash scrip to local bin via below commands**
 

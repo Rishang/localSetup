@@ -26,6 +26,8 @@ packages:
   - python3
   - golang
   - htop
+  yum:
+  - httpd
 
 snap:
   packages:

@@ -36,7 +36,7 @@ function _print_help {
     echo "-i [URL] | install packages form url template"
 }
 
-while getopts ":i:" opt; do
+while getopts ":i:u" opt; do
     case "${opt}" in
         i)  
             i=${OPTARG}

@@ -24,8 +24,10 @@ become_method=sudo
 become_ask_pass=true
 EOF
 
-echo "${cfg}" > ansible.cfg
-sed -i "s/{YOUR_USERNAME}/${USER}/" ansible.cfg
+if ! [[ -e "ansible.cfg" ]];then
+    echo "${cfg}" > ansible.cfg
+    sed -i "s/{YOUR_USERNAME}/${USER}/" ansible.cfg
+fi
 }
 
 

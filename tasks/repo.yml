@@ -52,9 +52,12 @@
 
 - name: Add multiple repositories into the same file (1/2)
   yum_repository:
-    name: "{{ item.name }}"
+    name: "{{ (item.name | lower) | replace(' ', '-') | replace('_','-') }}"
     description: "{{ item.name }}"
     baseurl: "{{ item.yum.repo }}"
+    gpgcheck: yes
+    gpgkey: "{{ item.yum.key }}"
+    enabled: yes
   loop: "{{ repos }}"
   when:
     - ansible_facts['os_family'] == 'RedHat'

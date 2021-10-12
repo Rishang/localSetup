@@ -11,9 +11,9 @@ localSetup
 
 - **Clone repo and link the bash scrip to local bin via below commands**
 
-    git clone "https://github.com/Rishang/localSetup.git" ~/.localsetup
+        git clone "https://github.com/Rishang/localSetup.git" ~/.localsetup
 
-    ln -s ~/.localsetup/localsetup.sh ~/.local/bin/localsetup
+        ln -s ~/.localsetup/localsetup.sh ~/.local/bin/localsetup
 
 ## Example
 

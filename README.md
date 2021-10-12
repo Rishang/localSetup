@@ -27,5 +27,5 @@ In order to see help page
 
     localsetup -h
 
-    -i [URL] | install packages form url template
-    -u | update localsetup
+    -i [URL] | Install packages form url template
+    -u       | Update localsetup

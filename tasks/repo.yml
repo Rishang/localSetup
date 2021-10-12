@@ -48,16 +48,10 @@
   loop: "{{ repos }}"
   when: 
     - ansible_facts['os_family'] == 'RedHat'
-    - item.yum is defined
+    - item.yum.key is defined
 
 - name: Add multiple repositories into the same file (1/2)
-  yum_repository:
-    name: "{{ (item.name | lower) | replace(' ', '-') | replace('.', '') | replace('_','-') }}"
-    description: "{{ item.name }}"
-    baseurl: "{{ item.yum.repo }}"
-    gpgcheck: yes
-    gpgkey: "{{ item.yum.key }}"
-    enabled: yes
+  shell: "yum-config-manager --add-repo {{ item.yum.repo }}"
   loop: "{{ repos }}"
   when:
     - ansible_facts['os_family'] == 'RedHat'

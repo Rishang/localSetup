@@ -28,19 +28,18 @@ echo "${cfg}" > ansible.cfg
 sed -i "s/{YOUR_USERNAME}/${USER}/" ansible.cfg
 }
 
-_add_cfg
-
-[[ -e ${vardir} ]] || mkdir $vardir
 
 function _print_help {
     echo "-i [URL] | Install packages form url template"
     echo "-u       | Update localsetup"
 }
 
-while getopts ":iuh" opt; do
+while getopts ":i:uh" opt; do
     case "${opt}" in
         i)  
             i=${OPTARG}
+            
+            [[ -e ${vardir} ]] || mkdir $vardir;_add_cfg
             curl -sS "$i" > "${vardir}/setup.yml"
             ansible-playbook playbook.yml
         ;;

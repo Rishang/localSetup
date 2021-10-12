@@ -59,3 +59,11 @@
     - ansible_facts['os_family'] == 'RedHat'
     - item.yum is defined
 
+- name: Install packages repo based
+  yum:
+    name: "{{ item.yum.packages }}"
+    state: latest
+  loop: "{{ repos }}"
+  when:
+    - ansible_facts['os_family'] == 'RedHat'
+    - item.yum is defined

@@ -1,5 +1,6 @@
 vars/*
 tmp
+ansible.cfg
 Dockerfile
 Vagrantfile
 Makefile

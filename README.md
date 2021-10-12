@@ -29,4 +29,3 @@ In order to see help page
 
     -i [URL] | install packages form url template
     -u | update localsetup
-    /home/noobi/Desktop/projects/localSetup

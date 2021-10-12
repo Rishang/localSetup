@@ -11,6 +11,14 @@ repos:
       packages:
       - sublime-text
   
+  - name: Docker
+    yum:
+      repo: "https://download.docker.com/linux/centos/docker-ce.repo"
+      packages:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+
   - name: Table Plus
     apt:
       key: "http://deb.tableplus.com/apt.tableplus.com.gpg.key"

@@ -34,6 +34,7 @@ _add_cfg
 
 function _print_help {
     echo "-i [URL] | install packages form url template"
+    echo "-u | update localsetup"
 }
 
 while getopts ":i:u" opt; do

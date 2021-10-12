@@ -33,8 +33,8 @@ _add_cfg
 [[ -e ${vardir} ]] || mkdir $vardir
 
 function _print_help {
-    echo "-i [URL] | install packages form url template"
-    echo "-u | update localsetup"
+    echo "-i [URL] | Install packages form url template"
+    echo "-u       | Update localsetup"
 }
 
 while getopts ":i:u" opt; do

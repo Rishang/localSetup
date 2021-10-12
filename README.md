@@ -22,3 +22,7 @@ Example template present in examples/vars.yml which can be used as follows
     localsetup -i "https://raw.githubusercontent.com/Rishang/localSetup/main/example/vars.yml"
 
 This will install packages defined in the URL - (`vars.yml`)
+
+In order to see help page
+
+    localsetup -h

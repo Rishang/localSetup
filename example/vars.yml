@@ -42,6 +42,7 @@ packages:
     - python3
     - golang
     - htop
+    - gnome-sushi
   yum:
     - httpd
 

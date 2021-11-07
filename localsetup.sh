@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# localsetup path
-cd ~/.localsetup
-
 # main
 
 vardir="vars"
+dir_path="~/.localsetup"
+
 function _add_cfg {
 
 # ansible cfg
@@ -24,29 +23,41 @@ become_method=sudo
 become_ask_pass=true
 EOF
 
-if ! [[ -e "ansible.cfg" ]];then
-    echo "${cfg}" > ansible.cfg
-    sed -i "s/{YOUR_USERNAME}/${USER}/" ansible.cfg
+if ! [[ -e "${dir_path}/ansible.cfg" ]];then
+    echo "${cfg}" > ${dir_path}/ansible.cfg
+    sed -i "s/{YOUR_USERNAME}/${USER}/" ${dir_path}/ansible.cfg
 fi
 }
 
 
 function _print_help {
-    echo "-i [URL] | Install packages form url template"
-    echo "-u       | Update localsetup"
+    echo "-i [URL]          | Install packages form url template"
+    echo "-f [VARFILE_PATH] | Install packages form local template file path"
+    echo "-u                | Update localsetup"
 }
 
-while getopts ":i:uh" opt; do
+while getopts ":i:ufh" opt; do
     case "${opt}" in
         i)  
+            # localsetup path
+            cd ${dir_path}
             i=${OPTARG}
             
             [[ -e ${vardir} ]] || mkdir $vardir;_add_cfg
             curl -sS "$i" > "${vardir}/setup.yml"
-            ansible-playbook playbook.yml
+            ansible-playbook playbook.yml --extra-vars "@vars/setup.yml"
+            cd -
+        ;;
+        f)  
+            pwd
+            echo "using varfile: $2"
+            [[ -e $2 ]] || exit 2
+            ansible-playbook playbook.yml --extra-vars "@${2}"
         ;;
         u)
+            cd ${dir_path}
             git pull origin main
+            cd -
         ;;
         h)
             _print_help
@@ -57,5 +68,3 @@ while getopts ":i:uh" opt; do
         ;;
     esac
 done
-
-cd -

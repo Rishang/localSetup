@@ -1,7 +1,11 @@
 ---
 - name: test
   hosts: all
-    
+  gather_facts: yes
+  vars:
+    distro: "{{ ansible_facts.distribution_release }}"
+    hostname: "{{ ansible_facts.hostname }}"
+
   tasks:
     - name: adding repos
       import_tasks: tasks/repo.yml

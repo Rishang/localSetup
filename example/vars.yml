@@ -21,7 +21,7 @@ repos:
 
     apt:
       key: https://download.docker.com/linux/ubuntu/gpg
-      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu   impish stable"
+      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu  {{distro}} stable"
       packages: 
         - docker-ce 
         - docker-ce-cli
@@ -34,6 +34,10 @@ repos:
       packages:
       - tableplus
 
+  - name: NodeJs
+    apt:
+      key: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+      repo: "deb [arch=amd64] https://deb.nodesource.com/node_17.x {{distro}}  main"
 
 packages:
   apt:

@@ -1,5 +1,9 @@
 # Apt
 
+# - name: print var
+#   shell: echo {{item.apt.repo}}
+#   loop: "{{ repos }}"
+
 - name: updating repos
   apt:
     name: '*'

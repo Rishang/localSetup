@@ -40,3 +40,9 @@ In order to see help page
 
     -i [URL] | Install packages form url template
     -u       | Update localsetup
+
+
+### variables
+
+distro: get distro name
+hostname: get hostname

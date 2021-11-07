@@ -3,7 +3,7 @@
 # main
 
 vardir="vars"
-dir_path="~/.localsetup"
+dir_path="$HOME/.localsetup"
 
 function _add_cfg {
 
@@ -40,7 +40,7 @@ while getopts ":i:ufh" opt; do
     case "${opt}" in
         i)  
             # localsetup path
-            cd ${dir_path}
+            cd $dir_path
             i=${OPTARG}
             
             [[ -e ${vardir} ]] || mkdir $vardir;_add_cfg

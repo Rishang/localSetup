@@ -60,10 +60,19 @@ go:
 
 pip:
   install:
-    - django
-    - fastapi[standard]
-    - pandas
-    - bs4
+    local:
+      - django
+      - fastapi[standard]
+      - pandas
+    global:
+      - bs4
+
+
+npm:
+  install:
+    local:
+    gloabal:
+
 
 git:
   path: ${HOME}/ansible/local/

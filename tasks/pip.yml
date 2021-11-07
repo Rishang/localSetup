@@ -1,5 +1,15 @@
-- name: Installing pip packages
-  shell: "pip3 install -U {{ item }} || pip install -U {{ item }}"
-  loop: "{{ pip.install }}"
+- name: Installing local pip packages
+  shell: "pip3 install --no-input -U {{ item }} || pip install --no-input -U {{ item }}"
+  loop: "{{ pip.install.local }}"
   when: 
     - pip.install is defined
+    - pip.install.local is defined
+
+- name: Installing global pip packages
+  shell: "sudo pip3 install --user --no-input -U {{ item }} || sudo pip install --user --no-input -U {{ item }}"
+  loop: "{{ pip.install.global }}"
+  become: yes
+  become_method: sudo
+  when: 
+    - pip.install is defined
+    - pip.install.global is defined

@@ -1,0 +1,11 @@
+- name: Installing npm packages globally.
+  npm:
+    name: "{{item}}"
+    global: yes
+    state: latest
+  loop: "{{ npm.install.global }}"
+  become: yes
+  become_method: sudo
+  when: 
+    - npm.install is defined
+    - npm.install.global is defined

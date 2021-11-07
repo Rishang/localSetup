@@ -30,3 +30,7 @@
     - name: install pip packages
       import_tasks: tasks/pip.yml
       when: pip is defined
+
+    - name: install npm packages
+      import_tasks: tasks/npm.yml
+      when: npm is defined

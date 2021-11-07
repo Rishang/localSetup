@@ -67,12 +67,10 @@ pip:
     global:
       - bs4
 
-
 npm:
   install:
-    local:
-    gloabal:
-
+    global:
+      - serverless
 
 git:
   path: ${HOME}/ansible/local/

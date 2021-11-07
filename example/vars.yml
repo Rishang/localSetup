@@ -77,7 +77,7 @@ npm:
       - serverless
 
 git:
-  path: ${HOME}/ansible/local/
+  path: ${HOME}/Documents
   clone:
-    - name: ansible-practice-setup
-      repo: https://github.com/Rishang/ansible-practice-setup.git
+    - name: scripts
+      repo: https://github.com/Rishang/scripts.git

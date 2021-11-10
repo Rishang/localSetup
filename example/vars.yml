@@ -81,3 +81,12 @@ git:
   clone:
     - name: scripts
       repo: https://github.com/Rishang/scripts.git
+
+
+command:
+  - info: add flatpak repo
+    sudo: no
+    run: |
+      which flatpak && \
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+

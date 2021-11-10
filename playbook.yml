@@ -38,3 +38,7 @@
     - name: install npm packages
       import_tasks: tasks/npm.yml
       when: npm is defined
+
+    - name: run shell commands
+      import_tasks: tasks/command.yml
+      when: command is defined

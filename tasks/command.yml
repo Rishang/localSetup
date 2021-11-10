@@ -1,7 +1,7 @@
 - name: Running commands Command
   shell:
     cmd: "{{item.run}}"
-  become: "{{item.sudo}}"
+  become: "{{item.sudo | default(no) }}"
   loop: "{{ command }}"
   when: 
     - command is defined

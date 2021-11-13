@@ -24,6 +24,7 @@
   when:
     - ansible_facts['os_family'] == 'Debian'
     - item.apt is defined
+    - item.apt.key is defined
 
 - name: "Adding repo for {{ item.name }}"
   apt_repository:

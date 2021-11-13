@@ -42,6 +42,7 @@
   when:
     - ansible_facts['os_family'] == 'Debian'
     - item.apt is defined
+    - item.apt.packages is defined
 
 # Yum
 

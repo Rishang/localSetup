@@ -28,6 +28,7 @@
 
 - name: "Adding repo for {{ item.name }}"
   apt_repository:
+    filename: "{{ item.name | replace('.','-') | replace(' ','-') | lower }}"
     repo: "{{ item.apt.repo }}"
     state: present
   loop: "{{ repos }}"

@@ -74,6 +74,7 @@ pip:
 npm:
   install:
     global:
+      - serve
       - serverless
 
 git:

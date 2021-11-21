@@ -2,29 +2,6 @@
 
 localSetup
 
-## requirements
-
-- python
-
-- openssh
-- openssh-askpass
-
-    1. For debian
-    `apt install openssh-server openssh-askpass` 
-
-    2. For Fedora / Centos
-    `yum install openssh openssh-server openssh-askpass`
-
-- ansible
-
-    Install ansible
-    `pip install ansible`
-
-- **Clone repo and link the bash scrip to local bin via below commands**
-
-        git clone "https://github.com/Rishang/localSetup.git" ~/.localsetup
-
-        ln -s ~/.localsetup/localsetup.sh ~/.local/bin/localsetup
 
 ## Example
 
@@ -44,5 +21,30 @@ In order to see help page
 
 ### variables
 
-distro: get distro name
-hostname: get hostname
+distro: get distro name eg: `{{distro}} -> hirsute`
+hostname: get hostname  eg: `{{hostname}} -> <YOUR-HOSTNAME>`
+
+## Installation
+
+### requirements
+
+- python
+- openssh
+- openssh-askpass
+
+    1. For debian
+    `apt install openssh-server openssh-askpass` 
+
+    2. For Fedora / Centos
+    `yum install openssh openssh-server openssh-askpass`
+
+- ansible
+
+    Install ansible
+    `pip install ansible`
+
+- **Clone repo and link the bash scrip to local bin via below commands**
+
+        git clone "https://github.com/Rishang/localSetup.git" ~/.localsetup
+
+        ln -s ~/.localsetup/localsetup.sh ~/.local/bin/localsetup

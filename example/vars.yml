@@ -55,7 +55,7 @@ snap:
     - slack
     - postman
   classic:
-    - code
+    - discord
 
 go:
   install:

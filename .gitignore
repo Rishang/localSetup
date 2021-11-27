@@ -5,3 +5,6 @@ Dockerfile
 Vagrantfile
 Makefile
 .vagrant
+.mypy_cache
+.vscode
+**/__pycache__/

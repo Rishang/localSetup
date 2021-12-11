@@ -13,7 +13,7 @@
     - curl
     - apt-transport-https
   when:
-    - ansible_facts['os_family'] == 'Debian'
+    - ansible_os_family == 'Debian'
     - item.apt is defined
 
 - name: Adding keys for {{ item.name }}
@@ -22,7 +22,7 @@
     state: present
   loop: "{{ repos }}"
   when:
-    - ansible_facts['os_family'] == 'Debian'
+    - ansible_os_family == 'Debian'
     - item.apt is defined
     - item.apt.key is defined
 
@@ -33,7 +33,7 @@
     state: present
   loop: "{{ repos }}"
   when: 
-    - ansible_facts['os_family'] == 'Debian'
+    - ansible_os_family == 'Debian'
     - item.apt is defined
 
 - name: "update and install repo packages"
@@ -42,7 +42,7 @@
     state: latest
   loop: "{{ repos }}"
   when:
-    - ansible_facts['os_family'] == 'Debian'
+    - ansible_os_family == 'Debian'
     - item.apt is defined
     - item.apt.packages is defined
 
@@ -54,14 +54,14 @@
     key: "{{ item.yum.key }}"
   loop: "{{ repos }}"
   when: 
-    - ansible_facts['os_family'] == 'RedHat'
+    - ansible_os_family == 'RedHat'
     - item.yum.key is defined
 
 - name: Add multiple repositories into the same file (1/2)
   shell: "yum-config-manager --add-repo {{ item.yum.repo }}"
   loop: "{{ repos }}"
   when:
-    - ansible_facts['os_family'] == 'RedHat'
+    - ansible_os_family == 'RedHat'
     - item.yum is defined
 
 - name: Install packages repo based
@@ -70,5 +70,5 @@
     state: latest
   loop: "{{ repos }}"
   when:
-    - ansible_facts['os_family'] == 'RedHat'
+    - ansible_os_family == 'RedHat'
     - item.yum is defined

@@ -3,8 +3,8 @@
   hosts: all
   gather_facts: yes
   vars:
-    distro: "{{ ansible_facts.distribution_release }}"
-    hostname: "{{ ansible_facts.hostname }}"
+    distro: "{{ ansible_distribution_release }}"
+    hostname: "{{ ansible_hostname }}"
 
   tasks:
     - name: adding repos

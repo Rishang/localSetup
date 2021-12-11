@@ -4,7 +4,7 @@
     state: latest
   loop: "{{ packages.apt }}"
   when:
-    - ansible_facts['os_family'] == 'Debian'
+    - ansible_os_family == 'Debian'
     - packages.apt is defined
 
 - name: Install packages yum based
@@ -13,5 +13,5 @@
     state: latest
   loop: "{{ packages.yum }}"
   when: 
-    - ansible_facts['os_family'] == 'RedHat'
+    - ansible_os_family == 'RedHat'
     - packages.yum is defined

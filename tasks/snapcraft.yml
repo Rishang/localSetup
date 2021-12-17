@@ -1,22 +1,22 @@
-# Install snap packages 
+# Install snap install 
 
 - name: installing {item.name}
   snap:
     name: "{{ item }}"
     state: present
     classic: no
-  loop: "{{ snap.packages }}"
+  loop: "{{ snap.install.normal }}"
   when:
     - snap.install is defined
     - snap.install.normal is defined
 
-# snap classic packages
+# snap classic install
 - name: installing classic {item.name}
   snap:
     name: "{{ item }}"
     state: present
     classic: yes
-  loop: "{{ snap.classic }}"
+  loop: "{{ snap.install.classic }}"
   when:
     - snap.install is defined
     - snap.install.classic is defined

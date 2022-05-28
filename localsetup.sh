@@ -36,6 +36,8 @@ function _print_help {
     echo "-u                | Update localsetup"
 }
 
+_add_cfg
+
 while getopts ":i:ufh" opt; do
     case "${opt}" in
         i)  
@@ -43,13 +45,12 @@ while getopts ":i:ufh" opt; do
             cd $dir_path
             i=${OPTARG}
             
-            [[ -e ${vardir} ]] || mkdir $vardir;_add_cfg
             curl -sS "$i" > "${vardir}/setup.yml"
             ansible-playbook playbook.yml --extra-vars "@vars/setup.yml"
             cd -
         ;;
         f)  
-            pwd
+            cd $dir_path
             echo "using varfile: $2"
             [[ -e $2 ]] || exit 2
             ansible-playbook playbook.yml --extra-vars "@${2}"

@@ -2,8 +2,10 @@
 
 # main
 
-vardir="vars"
 dir_path="$HOME/.localsetup"
+vardir="$dir_path/vars"
+
+[[ -e $vardir ]] || mkdir -p $vardir
 
 function _add_cfg {
 

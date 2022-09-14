@@ -19,6 +19,7 @@
 - name: Adding keys for {{ item.name }}
   apt_key:
     url: "{{ item.apt.key }}"
+    keyring: "{{ item.apt.keyring }}"
     state: present
   loop: "{{ repos }}"
   when:
